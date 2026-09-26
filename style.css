@@ -1,5 +1,5 @@
 /* ========================================
-   GENERAL STYLES
+   GENERAL
 ======================================== */
 
 * {
@@ -8,10 +8,17 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+
     background-color: #f4f6f8;
+
     color: #333;
+
     line-height: 1.6;
 }
 
@@ -22,19 +29,76 @@ body {
 
 header {
     background-color: #003366;
+
     color: white;
+
     text-align: center;
+
     padding: 45px 20px;
 }
 
 header h1 {
     font-size: 38px;
+
     margin-bottom: 12px;
 }
 
 header p {
     font-size: 17px;
+
     margin: 3px 0;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.navbar {
+    background-color: #00264d;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 12px 20px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    padding: 10px 22px;
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: white;
+
+    color: #003366;
 }
 
 
@@ -44,34 +108,108 @@ header p {
 
 section {
     width: 90%;
+
     max-width: 1200px;
+
     margin: 45px auto;
 }
 
 section h2 {
     text-align: center;
+
     color: #003366;
+
     font-size: 28px;
+
     margin-bottom: 10px;
 }
 
 .subheading {
     text-align: center;
+
     color: #555;
+
     font-size: 18px;
+
     font-weight: normal;
+
     margin-bottom: 25px;
 }
 
 
 /* ========================================
-   OFFICIALS GRID
+   VMGO
+======================================== */
+
+.vmgo-section {
+    background-color: white;
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.vmgo-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+    margin-top: 25px;
+}
+
+.vmgo-card {
+    background-color: #f4f6f8;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border-left: 5px solid #003366;
+}
+
+.vmgo-card h3 {
+    color: #003366;
+
+    font-size: 21px;
+
+    margin-bottom: 12px;
+}
+
+.vmgo-card p {
+    font-size: 15px;
+}
+
+.vmgo-card ul {
+    padding-left: 20px;
+}
+
+.vmgo-card li {
+    margin-bottom: 10px;
+}
+
+
+/* ========================================
+   OFFICIALS
 ======================================== */
 
 .officials {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
     gap: 25px;
+
     margin-top: 25px;
 }
 
@@ -82,22 +220,26 @@ section h2 {
 
 .official {
     background-color: white;
+
     text-align: center;
+
     padding: 25px 20px;
+
     border-radius: 12px;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
 
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
-
-    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .official:hover {
     transform: translateY(-8px);
 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 
@@ -107,6 +249,7 @@ section h2 {
 
 .official img {
     width: 180px;
+
     height: 180px;
 
     object-fit: cover;
@@ -127,7 +270,9 @@ section h2 {
 
 .official h3 {
     color: #003366;
+
     font-size: 19px;
+
     margin-bottom: 8px;
 }
 
@@ -138,7 +283,133 @@ section h2 {
 
 .position {
     color: #666;
+
     font-size: 15px;
+}
+
+
+/* ========================================
+   EVENT PAGE
+======================================== */
+
+.event-section {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 50px auto;
+
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.event-section h2 {
+    text-align: center;
+
+    color: #003366;
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.event-description {
+    text-align: center;
+
+    color: #666;
+
+    font-size: 16px;
+
+    margin-bottom: 35px;
+}
+
+
+/* ========================================
+   EVENT GRID
+======================================== */
+
+.event-gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* ========================================
+   EVENT CARD
+======================================== */
+
+.event-card {
+    background-color: #f4f6f8;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ========================================
+   EVENT IMAGE
+======================================== */
+
+.event-card img {
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ========================================
+   EVENT INFORMATION
+======================================== */
+
+.event-info {
+    padding: 20px;
+
+    text-align: center;
+}
+
+.event-info h3 {
+    color: #003366;
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.event-info p {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.5;
 }
 
 
@@ -148,21 +419,40 @@ section h2 {
 
 footer {
     background-color: #003366;
+
     color: white;
+
     text-align: center;
+
     padding: 25px 20px;
+
     margin-top: 60px;
 }
 
 footer p {
     margin: 3px 0;
+
     font-size: 14px;
 }
 
 
 /* ========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE
 ======================================== */
+
+@media (max-width: 1000px) {
+
+    .vmgo-container {
+        grid-template-columns: 1fr;
+    }
+
+    .event-gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
 
 @media (max-width: 768px) {
 
@@ -176,6 +466,7 @@ footer p {
 
     section {
         width: 92%;
+
         margin: 35px auto;
     }
 
@@ -183,10 +474,52 @@ footer p {
         font-size: 24px;
     }
 
+
+    /* Navigation */
+
+    .navbar {
+        flex-wrap: wrap;
+
+        padding: 10px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+
+        padding: 8px 14px;
+    }
+
+
+    /* Officials */
+
     .official img {
         width: 160px;
+
         height: 160px;
     }
+
+
+    /* Events */
+
+    .event-section {
+        width: 92%;
+
+        padding: 25px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .event-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .event-card img {
+        height: 250px;
+    }
+
 }
 
 
@@ -206,10 +539,258 @@ footer p {
 
     .official img {
         width: 150px;
+
         height: 150px;
+    }
+
+    .event-section {
+        width: 92%;
+
+        padding: 20px;
     }
 
     footer {
         padding: 20px 10px;
     }
+
+}
+/* ========================================
+   MEDIA TITLES
+======================================== */
+
+.media-title {
+    color: #003366;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    margin-top: 30px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   PHOTO GALLERY
+======================================== */
+
+.photo-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* ========================================
+   PHOTO CARD
+======================================== */
+
+.photo-card {
+
+    background-color: #f4f6f8;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+.photo-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* ========================================
+   PHOTO
+======================================== */
+
+.photo-card img {
+
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* ========================================
+   PHOTO TITLE
+======================================== */
+
+.photo-card h3 {
+
+    color: #003366;
+
+    font-size: 18px;
+
+    padding: 15px;
+
+}
+
+
+/* ========================================
+   VIDEO GALLERY
+======================================== */
+
+.video-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+
+    margin-bottom: 45px;
+
+}
+
+
+/* ========================================
+   VIDEO CARD
+======================================== */
+
+.video-card {
+
+    background-color: #f4f6f8;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+.video-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* ========================================
+   VIDEO
+======================================== */
+
+.video-card video {
+
+    width: 100%;
+
+    height: 300px;
+
+    display: block;
+
+    background-color: #000;
+
+}
+
+
+/* ========================================
+   VIDEO INFO
+======================================== */
+
+.video-info {
+
+    padding: 20px;
+
+    text-align: center;
+
+}
+
+.video-info h3 {
+
+    color: #003366;
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+
+}
+
+.video-info p {
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .photo-gallery {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .photo-gallery {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .video-gallery {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .photo-card img {
+
+        height: 280px;
+
+    }
+
+    .video-card video {
+
+        height: 250px;
+
+    }
+
 }
