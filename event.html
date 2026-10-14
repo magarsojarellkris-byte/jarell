@@ -2,334 +2,442 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Campus Events Gallery</title>
-
+    <title>Campus Events Gallery | ISUFST</title>
     <link rel="stylesheet" href="style.css">
 
+    <style>
+        .event-section .day-title {
+            scroll-margin-top: 100px;
+        }
+
+        .event-section .photo-gallery {
+            margin-bottom: 40px;
+        }
+
+        .event-section .video-gallery {
+            margin-bottom: 45px;
+        }
+
+        .video-section-title {
+            margin-top: 60px;
+            padding: 25px 15px;
+            color: #003366;
+            text-align: center;
+            font-size: 30px;
+            background: #eaf2ff;
+            border-bottom: 4px solid #f0b429;
+            border-radius: 12px;
+        }
+
+        .photo-card h3 {
+            display: none;
+        }
+
+        @media (max-width: 520px) {
+            .video-section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-
     <!-- HEADER -->
-
     <header>
-
         <h1>Campus Events Gallery</h1>
-
-        <p>
-            Iloilo State University of Fisheries Science and Technology
-        </p>
-
-        <p>
-            San Enrique Campus
-        </p>
-
+        <p>Iloilo State University of Fisheries Science and Technology</p>
+        <p>San Enrique Campus</p>
     </header>
 
-
     <!-- NAVIGATION -->
-
     <nav class="navbar">
-
         <a href="index.html">Home</a>
-
         <a href="index.html#vmgo">VMGO</a>
-
         <a href="index.html#officials">Officials</a>
-
         <a href="event.html">Gallery</a>
-
     </nav>
 
-
-    <!-- ========================================
-         GALLERY
-    ========================================= -->
-
+    <!-- MAIN GALLERY -->
     <section class="event-section">
 
         <h2>Campus Events and Activities</h2>
 
         <p class="event-description">
-            Explore pictures and videos from the different
-            events and activities of ISUFST San Enrique Campus.
+            Explore the memorable celebrations, competitions,
+            performances, and achievements of ISUFST San Enrique Campus.
         </p>
 
+        <!-- 1. TEACHERS' DAY -->
 
-        <!-- ========================================
-             1ST DAY - PICTURES
-        ========================================= -->
+        <h2 class="day-title">Teachers' Day Celebration 2026</h2>
 
-        <h2 class="day-title">
-            1st Day
-        </h2>
+        <p class="event-description">
+            A celebration honoring the dedication, passion, and
+            commitment of our teachers and faculty members.
+        </p>
 
-        <h3 class="media-title">
-            Pictures
-        </h3>
-
+        <h3 class="media-title">Teachers' Day Pictures</h3>
 
         <div class="photo-gallery">
 
-
             <div class="photo-card">
-
-                <img
-                    src="day1-photo1.jpg"
-                    alt="1st Day Photo 1"
-                >
-
-                <h3>
-                    After the Final Performance.
-                </h3>
-
+                <img src="teachersphoto1.jpg" alt="Teachers' Day picture 1" loading="lazy">
             </div>
 
-
             <div class="photo-card">
-
-                <img
-                    src="day1-photo2.jpg"
-                    alt="1st Day Photo 2"
-                >
-
-                <h3>
-                    During the Streetdance Competition.
-                </h3>
-
+                <img src="teachersphoto2.jpg" alt="Teachers' Day picture 2" loading="lazy">
             </div>
 
-
             <div class="photo-card">
-
-                <img
-                    src="day1-photo3.jpg"
-                    alt="1st Day Photo 3"
-                >
-
-                <h3>
-                    After the Final Performance.
-                </h3>
-
+                <img src="teachersphoto3.jpg" alt="Teachers' Day picture 3" loading="lazy">
             </div>
 
+            <div class="photo-card">
+                <img src="teachersphoto4.jpg" alt="Teachers' Day picture 4" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="teachersphoto5.jpg" alt="Teachers' Day picture 5" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="teachersphoto6.jpg" alt="Teachers' Day picture 6" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="teachersphoto7.jpg" alt="Teachers' Day picture 7" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="teachersphoto8.jpg" alt="Teachers' Day picture 8" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="teachersphoto9.jpg" alt="Teachers' Day picture 9" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="teachersphoto10.jpg" alt="Teachers' Day picture 10" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="teachersphoto13.jpg" alt="Teachers' Day picture 11" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="teachersphoto12.jpg" alt="Teachers' Day picture 12" loading="lazy">
+            </div>
 
         </div>
 
+        <!-- 2. MR. AND MS. COLORS OF UNITY -->
 
-        <!-- ========================================
-             1ST DAY - VIDEOS
-        ========================================= -->
+        <h2 class="day-title">Mr. and Ms. Colors of Unity 2026</h2>
 
-        <h3 class="media-title">
-            Videos
-        </h3>
+        <p class="event-description">
+            Celebrating confidence, talent, personality, and unity
+            through the search for Mr. and Ms. Colors of Unity 2026.
+        </p>
 
-
-        <div class="video-gallery">
-
-
-            <div class="video-card">
-
-                <video controls>
-
-                    <source
-                        src="day1-video1.mp4"
-                        type="video/mp4"
-                    >
-
-                    Your browser does not support
-                    the video element.
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>
-                        1st Day - Video 1
-                    </h3>
-
-                </div>
-
-            </div>
-
-
-            <div class="video-card">
-
-                <video controls>
-
-                    <source
-                        src="day1-video2.mp4"
-                        type="video/mp4"
-                    >
-
-                    Your browser does not support
-                    the video element.
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>
-                        1st Day - Video 2
-                    </h3>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- ========================================
-             2ND DAY - PICTURES
-        ========================================= -->
-
-        <h2 class="day-title">
-            2nd Day
-        </h2>
-
-        <h3 class="media-title">
-            Pictures
-        </h3>
-
+        <h3 class="media-title">Pageant Pictures</h3>
 
         <div class="photo-gallery">
 
-
             <div class="photo-card">
-
-                <img
-                    src="day2-photo1.jpg"
-                    alt="2nd Day Photo 1"
-                >
-
-                <h3>
-                    2nd Day 
-                </h3>
-
+                <img src="colorsphoto1.jpg" alt="Mr. and Ms. Colors of Unity candidates" loading="lazy">
             </div>
 
-
             <div class="photo-card">
-
-                <img
-                    src="day2-photo2.jpg"
-                    alt="2nd Day Photo 2"
-                >
-
-                <h3>
-                    2nd Day 
-                </h3>
-
+                <img src="colorsphoto2.jpg" alt="Mr. and Ms. Colors of Unity winners" loading="lazy">
             </div>
-
-
-            <div class="photo-card">
-
-                <img
-                    src="day2-photo3.jpg"
-                    alt="2nd Day Photo 3"
-                >
-
-                <h3>
-                    2nd Day 
-                </h3>
-
-            </div>
-
 
         </div>
 
+        <!-- 3. LGBTQIA+ PRIDE AMBASSADOR -->
 
-        <!-- ========================================
-             2ND DAY - VIDEOS
-        ========================================= -->
+        <h2 class="day-title">LGBTQIA+ Pride Ambassador 2026</h2>
 
-        <h3 class="media-title">
-            Videos
-        </h3>
+        <p class="event-description">
+            Celebrating diversity, equality, inclusion, and
+            the freedom to express one's authentic self.
+        </p>
 
+        <h3 class="media-title">Pride Ambassador Picture</h3>
+
+        <div class="photo-gallery">
+
+            <div class="photo-card">
+                <img src="pridephoto1.jpg" alt="LGBTQIA+ Pride Ambassador 2026" loading="lazy">
+            </div>
+
+        </div>
+
+        <!-- 4. FIELD DEMONSTRATION WINNERS -->
+
+        <h2 class="day-title">Field Demonstration Competition Winners 2026</h2>
+
+        <p class="event-description">
+            Recognizing the teamwork, coordination, discipline,
+            and outstanding performances of the participating teams.
+        </p>
+
+        <h3 class="media-title">Field Demonstration Pictures</h3>
+
+        <div class="photo-gallery">
+
+            <div class="photo-card">
+                <img src="fieldphoto1.jpg" alt="Field demonstration competition" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="fieldphoto2.jpg" alt="Field demonstration winners" loading="lazy">
+            </div>
+
+        </div>
+
+        <!-- 5. STREETDANCE WINNERS -->
+
+        <h2 class="day-title">Streetdance Competition Winners 2026</h2>
+
+        <p class="event-description">
+            Relive the rhythm, creativity, energy, and outstanding
+            performances of the competing streetdance teams.
+        </p>
+
+        <h3 class="media-title">Streetdance Pictures</h3>
+
+        <div class="photo-gallery">
+
+            <div class="photo-card">
+                <img src="streetphoto1.jpg" alt="Streetdance competition performance" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="street2.jpg" alt="Streetdance competition winners" loading="lazy">
+            </div>
+
+        </div>
+
+        <!-- 6. COLORS OF UNITY -->
+
+        <h2 class="day-title">Colors of Unity 2026</h2>
+
+        <p class="event-description">
+            A celebration of school spirit, camaraderie, sportsmanship,
+            talent, and unity among the students of ISUFST San Enrique Campus.
+        </p>
+
+        <h3 class="media-title">Colors of Unity Pictures</h3>
+
+        <div class="photo-gallery">
+
+            <div class="photo-card">
+                <img src="colorspphoto1.jpg" alt="Colors of Unity picture 1" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorspphoto2.jpg" alt="Colors of Unity picture 2" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto3.jpg" alt="Colors of Unity picture 3" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto4.jpg" alt="Colors of Unity picture 4" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto5.jpg" alt="Colors of Unity picture 5" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto6.jpg" alt="Colors of Unity picture 6" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto7.jpg" alt="Colors of Unity picture 7" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto8.jpg" alt="Colors of Unity picture 8" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto9.jpg" alt="Colors of Unity picture 9" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto10.jpg" alt="Colors of Unity picture 10" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto11.jpg" alt="Colors of Unity picture 11" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto12.jpg" alt="Colors of Unity picture 12" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto13.jpg" alt="Colors of Unity picture 13" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto14.jpg" alt="Colors of Unity picture 14" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="colorsphoto15.jpg" alt="Colors of Unity picture 15" loading="lazy">
+            </div>
+
+        </div>
+
+        <!-- 7. ITQUAINT 2026 -->
+
+        <h2 class="day-title">ITQUAINT 2026</h2>
+
+        <p class="event-description">
+            Showcasing the creativity, innovation, technical skills,
+            and achievements of IT students during ITQUAINT 2026.
+        </p>
+
+        <h3 class="media-title">ITQUAINT 2026 Pictures</h3>
+
+        <div class="photo-gallery">
+
+            <div class="photo-card">
+                <img src="itquaintphoto1.jpg" alt="ITQUAINT 2026 picture 1" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto2.jpg" alt="ITQUAINT 2026 picture 2" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto3.jpg" alt="ITQUAINT 2026 picture 3" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto4.jpg" alt="ITQUAINT 2026 picture 4" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto5.jpg" alt="ITQUAINT 2026 picture 5" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto6.jpg" alt="ITQUAINT 2026 picture 6" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto7.jpg" alt="ITQUAINT 2026 picture 7" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto8.jpg" alt="ITQUAINT 2026 picture 8" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto9.jpg" alt="ITQUAINT 2026 picture 9" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto10.jpg" alt="ITQUAINT 2026 picture 10" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto11.jpg" alt="ITQUAINT 2026 picture 11" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto12.jpg" alt="ITQUAINT 2026 picture 12" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto13.jpg" alt="ITQUAINT 2026 picture 13" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto14.jpg" alt="ITQUAINT 2026 picture 14" loading="lazy">
+            </div>
+
+            <div class="photo-card">
+                <img src="itquaintphoto15.jpg" alt="ITQUAINT 2026 picture 15" loading="lazy">
+            </div>
+
+        </div>
+
+        <!-- EVENT VIDEOS -->
+
+        <h2 class="video-section-title" id="event-videos">
+            Event Videos
+        </h2>
+
+        <p class="event-description">
+            Watch the highlights, performances, and memorable moments
+            from the campus competitions and Colors of Unity 2026.
+        </p>
+
+        <!-- FIELD DEMONSTRATION VIDEOS -->
 
         <div class="video-gallery">
 
-
             <div class="video-card">
-
-                <video controls>
-
-                    <source
-                        src="day2-video1.mp4"
-                        type="video/mp4"
-                    >
-
-                    Your browser does not support
-                    the video element.
-
+                <video controls preload="metadata">
+                    <source src="video4.mp4" type="video/mp4">
+                    Your browser does not support the video element.
                 </video>
-
-                <div class="video-info">
-
-                    <h3>
-                        2nd Day - Video 1
-                    </h3>
-
-                </div>
-
             </div>
 
-
             <div class="video-card">
-
-                <video controls>
-
-                    <source
-                        src="day2-video2.mp4"
-                        type="video/mp4"
-                    >
-
-                    Your browser does not support
-                    the video element.
-
+                <video controls preload="metadata">
+                    <source src="video3.mp4" type="video/mp4">
+                    Your browser does not support the video element.
                 </video>
-
-                <div class="video-info">
-
-                    <h3>
-                        2nd Day - Video 2
-                    </h3>
-                </div>
-
             </div>
 
+        </div>
+
+        <!-- STREETDANCE VIDEO -->
+
+        <div class="video-gallery">
+
+            <div class="video-card">
+                <video controls preload="metadata">
+                    <source src="video2.mp4" type="video/mp4">
+                    Your browser does not support the video element.
+                </video>
+            </div>
+
+        </div>
+
+        <!-- COLORS OF UNITY VIDEO -->
+
+        <div class="video-gallery">
+
+            <div class="video-card">
+                <video controls preload="metadata">
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video element.
+                </video>
+            </div>
 
         </div>
 
     </section>
 
-
     <!-- FOOTER -->
-
     <footer>
-
         <p>
-            © 2026 Iloilo State University of Fisheries Science and Technology
+            &copy; 2026 Iloilo State University of Fisheries
+            and Technology
         </p>
-
-        <p>
-            San Enrique Campus
-        </p>
-
+        <p>San Enrique Campus</p>
     </footer>
 
-
 </body>
-
 </html>
