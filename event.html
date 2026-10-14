@@ -1,443 +1,704 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Events Gallery | ISUFST</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .event-section .day-title {
-            scroll-margin-top: 100px;
-        }
+<title>Campus Events | ISUFST San Enrique</title>
 
-        .event-section .photo-gallery {
-            margin-bottom: 40px;
-        }
+<style>
+/* ==============================
+   GLOBAL
+============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .event-section .video-gallery {
-            margin-bottom: 45px;
-        }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
 
-        .video-section-title {
-            margin-top: 60px;
-            padding: 25px 15px;
-            color: #003366;
-            text-align: center;
-            font-size: 30px;
-            background: #eaf2ff;
-            border-bottom: 4px solid #f0b429;
-            border-radius: 12px;
-        }
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
+}
 
-        .photo-card h3 {
-            display: none;
-        }
+a {
+    text-decoration: none;
+}
 
-        @media (max-width: 520px) {
-            .video-section-title {
-                font-size: 24px;
-            }
-        }
-    </style>
+/* ==============================
+   HERO
+============================== */
+.hero {
+    min-height: 330px;
+    padding: 75px 20px 90px;
+    background: linear-gradient(135deg, #111827, #1e3a8a, #4338ca);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 60px solid rgba(255,255,255,.06);
+    border-radius: 50%;
+    top: -180px;
+    right: -60px;
+}
+
+.hero-content {
+    max-width: 1150px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 6px 15px;
+    margin-bottom: 18px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 750px;
+    font-size: clamp(35px, 5vw, 58px);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #dbeafe;
+    font-size: 16px;
+}
+
+/* ==============================
+   NAVIGATION
+============================== */
+.navbar {
+    width: min(94%, 1150px);
+    margin: -30px auto 0;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(15,23,42,.1);
+}
+
+.nav-brand {
+    color: #1e3a8a;
+    font-size: 15px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.nav-links a {
+    padding: 9px 13px;
+    border-radius: 8px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.nav-links a:hover {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+/* ==============================
+   INTRODUCTION
+============================== */
+.page-intro {
+    max-width: 1150px;
+    width: 92%;
+    margin: 65px auto 35px;
+}
+
+.page-intro .eyebrow {
+    color: #4f46e5;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.page-intro h2 {
+    color: #0f172a;
+    font-size: clamp(28px, 4vw, 38px);
+    margin: 5px 0 10px;
+}
+
+.page-intro p {
+    max-width: 720px;
+    color: #64748b;
+}
+
+/* ==============================
+   EVENT PANELS
+============================== */
+.event-list {
+    max-width: 1150px;
+    width: 92%;
+    margin: 0 auto 75px;
+}
+
+.event-block {
+    margin-bottom: 45px;
+    padding: 30px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(15,23,42,.045);
+    scroll-margin-top: 100px;
+}
+
+.event-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.event-number {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 45px;
+    height: 45px;
+    color: white;
+    background: linear-gradient(135deg, #1e3a8a, #6366f1);
+    border-radius: 13px;
+    font-weight: 800;
+}
+
+.event-heading h2 {
+    color: #0f172a;
+    font-size: 25px;
+    line-height: 1.3;
+    margin-bottom: 5px;
+}
+
+.event-heading p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ==============================
+   PHOTO GRID
+============================== */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    background: #e2e8f0;
+    border-radius: 13px;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 4px 12px rgba(15,23,42,.07);
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease, filter .4s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.06);
+    filter: brightness(.9);
+}
+
+.photo-card h3 {
+    display: none;
+}
+
+/* ==============================
+   VIDEOS
+============================== */
+.video-section {
+    padding: 65px 0 75px;
+    background: #e8edff;
+    scroll-margin-top: 80px;
+}
+
+.video-container {
+    max-width: 1150px;
+    width: 92%;
+    margin: auto;
+}
+
+.video-header {
+    margin-bottom: 30px;
+}
+
+.video-header .eyebrow {
+    color: #4338ca;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.video-header h2 {
+    color: #0f172a;
+    font-size: clamp(28px, 4vw, 38px);
+    margin: 5px 0 8px;
+}
+
+.video-header p {
+    color: #64748b;
+}
+
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.video-card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid #dbe3f4;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(30,58,138,.07);
+    transition: transform .3s, box-shadow .3s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(30,58,138,.12);
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0f172a;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-info h3 {
+    color: #1e3a8a;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.video-info p {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: #111827;
+    color: #e2e8f0;
+}
+
+footer strong {
+    color: white;
+    font-size: 16px;
+}
+
+footer p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 850px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+    }
+
+    .photo-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .event-block {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 550px) {
+    .hero {
+        min-height: auto;
+        padding: 65px 20px 75px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .navbar {
+        width: 94%;
+        padding: 12px;
+        top: 5px;
+    }
+
+    .nav-links {
+        gap: 3px;
+    }
+
+    .nav-links a {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    .page-intro {
+        margin-top: 45px;
+    }
+
+    .event-list,
+    .video-container {
+        width: 94%;
+    }
+
+    .event-block {
+        padding: 19px 14px;
+        margin-bottom: 25px;
+        border-radius: 15px;
+    }
+
+    .event-heading {
+        gap: 10px;
+    }
+
+    .event-number {
+        width: 37px;
+        height: 37px;
+        border-radius: 10px;
+        font-size: 13px;
+    }
+
+    .event-heading h2 {
+        font-size: 21px;
+    }
+
+    .photo-gallery,
+    .video-gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .photo-card {
+        aspect-ratio: 4 / 3;
+    }
+
+    .video-section {
+        padding: 45px 0;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Campus Events Gallery</h1>
-        <p>Iloilo State University of Fisheries Science and Technology</p>
-        <p>San Enrique Campus</p>
-    </header>
+<!-- HERO HEADER -->
+<header class="hero">
+    <div class="hero-content">
+        <span class="hero-label">ISUFST • San Enrique Campus</span>
+        <h1>Campus Events &amp; Memories</h1>
+        <p>
+            Celebrating student achievements, campus traditions,
+            creativity, friendship, and unforgettable moments.
+        </p>
+    </div>
+</header>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar">
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="index.html" class="nav-brand">ISUFST EVENTS</a>
+
+    <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="index.html#vmgo">VMGO</a>
-        <a href="index.html#officials">Officials</a>
-        <a href="event.html">Gallery</a>
-    </nav>
+        <a href="#events">Events</a>
+        <a href="#teachers-day">Teachers' Day</a>
+        <a href="#colors-unity">Colors of Unity</a>
+        <a href="#itquaint">ITQUAINT</a>
+        <a href="#videos">Videos</a>
+    </div>
+</nav>
 
-    <!-- MAIN GALLERY -->
-    <section class="event-section">
+<!-- INTRODUCTION -->
+<div class="page-intro">
+    <span class="eyebrow">Our Campus, Our Stories</span>
+    <h2>Explore Our Memories</h2>
+    <p>
+        Browse the photographs from our campus celebrations and activities.
+        Every picture captures a moment shared by our students and community.
+    </p>
+</div>
 
-        <h2>Campus Events and Activities</h2>
+<main class="event-list" id="events">
 
-        <p class="event-description">
-            Explore the memorable celebrations, competitions,
-            performances, and achievements of ISUFST San Enrique Campus.
-        </p>
-
-        <!-- 1. TEACHERS' DAY -->
-
-        <h2 class="day-title">Teachers' Day Celebration 2026</h2>
-
-        <p class="event-description">
-            A celebration honoring the dedication, passion, and
-            commitment of our teachers and faculty members.
-        </p>
-
-        <h3 class="media-title">Teachers' Day Pictures</h3>
+    <!-- TEACHERS' DAY -->
+    <section class="event-block" id="teachers-day">
+        <div class="event-heading">
+            <span class="event-number">01</span>
+            <div>
+                <h2>Teachers' Day Celebration</h2>
+                <p>Honoring the dedication and commitment of our teachers.</p>
+            </div>
+        </div>
 
         <div class="photo-gallery">
-
-            <div class="photo-card">
-                <img src="teachersphoto1.jpg" alt="Teachers' Day picture 1" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto2.jpg" alt="Teachers' Day picture 2" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto3.jpg" alt="Teachers' Day picture 3" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto4.jpg" alt="Teachers' Day picture 4" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto5.jpg" alt="Teachers' Day picture 5" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto6.jpg" alt="Teachers' Day picture 6" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto7.jpg" alt="Teachers' Day picture 7" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto8.jpg" alt="Teachers' Day picture 8" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto9.jpg" alt="Teachers' Day picture 9" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto10.jpg" alt="Teachers' Day picture 10" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto13.jpg" alt="Teachers' Day picture 11" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="teachersphoto12.jpg" alt="Teachers' Day picture 12" loading="lazy">
-            </div>
-
+            <div class="photo-card"><img src="teachersphoto7.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto2.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto12.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto4.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto9.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto1.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto13.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto5.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto10.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto3.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto8.jpg" alt="Teachers' Day" loading="lazy"></div>
+            <div class="photo-card"><img src="teachersphoto6.jpg" alt="Teachers' Day" loading="lazy"></div>
         </div>
-
-        <!-- 2. MR. AND MS. COLORS OF UNITY -->
-
-        <h2 class="day-title">Mr. and Ms. Colors of Unity 2026</h2>
-
-        <p class="event-description">
-            Celebrating confidence, talent, personality, and unity
-            through the search for Mr. and Ms. Colors of Unity 2026.
-        </p>
-
-        <h3 class="media-title">Pageant Pictures</h3>
-
-        <div class="photo-gallery">
-
-            <div class="photo-card">
-                <img src="colorsphoto1.jpg" alt="Mr. and Ms. Colors of Unity candidates" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto2.jpg" alt="Mr. and Ms. Colors of Unity winners" loading="lazy">
-            </div>
-
-        </div>
-
-        <!-- 3. LGBTQIA+ PRIDE AMBASSADOR -->
-
-        <h2 class="day-title">LGBTQIA+ Pride Ambassador 2026</h2>
-
-        <p class="event-description">
-            Celebrating diversity, equality, inclusion, and
-            the freedom to express one's authentic self.
-        </p>
-
-        <h3 class="media-title">Pride Ambassador Picture</h3>
-
-        <div class="photo-gallery">
-
-            <div class="photo-card">
-                <img src="pridephoto1.jpg" alt="LGBTQIA+ Pride Ambassador 2026" loading="lazy">
-            </div>
-
-        </div>
-
-        <!-- 4. FIELD DEMONSTRATION WINNERS -->
-
-        <h2 class="day-title">Field Demonstration Competition Winners 2026</h2>
-
-        <p class="event-description">
-            Recognizing the teamwork, coordination, discipline,
-            and outstanding performances of the participating teams.
-        </p>
-
-        <h3 class="media-title">Field Demonstration Pictures</h3>
-
-        <div class="photo-gallery">
-
-            <div class="photo-card">
-                <img src="fieldphoto1.jpg" alt="Field demonstration competition" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="fieldphoto2.jpg" alt="Field demonstration winners" loading="lazy">
-            </div>
-
-        </div>
-
-        <!-- 5. STREETDANCE WINNERS -->
-
-        <h2 class="day-title">Streetdance Competition Winners 2026</h2>
-
-        <p class="event-description">
-            Relive the rhythm, creativity, energy, and outstanding
-            performances of the competing streetdance teams.
-        </p>
-
-        <h3 class="media-title">Streetdance Pictures</h3>
-
-        <div class="photo-gallery">
-
-            <div class="photo-card">
-                <img src="streetphoto1.jpg" alt="Streetdance competition performance" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="street2.jpg" alt="Streetdance competition winners" loading="lazy">
-            </div>
-
-        </div>
-
-        <!-- 6. COLORS OF UNITY -->
-
-        <h2 class="day-title">Colors of Unity 2026</h2>
-
-        <p class="event-description">
-            A celebration of school spirit, camaraderie, sportsmanship,
-            talent, and unity among the students of ISUFST San Enrique Campus.
-        </p>
-
-        <h3 class="media-title">Colors of Unity Pictures</h3>
-
-        <div class="photo-gallery">
-
-            <div class="photo-card">
-                <img src="colorspphoto1.jpg" alt="Colors of Unity picture 1" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorspphoto2.jpg" alt="Colors of Unity picture 2" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto3.jpg" alt="Colors of Unity picture 3" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto4.jpg" alt="Colors of Unity picture 4" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto5.jpg" alt="Colors of Unity picture 5" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto6.jpg" alt="Colors of Unity picture 6" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto7.jpg" alt="Colors of Unity picture 7" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto8.jpg" alt="Colors of Unity picture 8" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto9.jpg" alt="Colors of Unity picture 9" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto10.jpg" alt="Colors of Unity picture 10" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto11.jpg" alt="Colors of Unity picture 11" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto12.jpg" alt="Colors of Unity picture 12" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto13.jpg" alt="Colors of Unity picture 13" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto14.jpg" alt="Colors of Unity picture 14" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="colorsphoto15.jpg" alt="Colors of Unity picture 15" loading="lazy">
-            </div>
-
-        </div>
-
-        <!-- 7. ITQUAINT 2026 -->
-
-        <h2 class="day-title">ITQUAINT 2026</h2>
-
-        <p class="event-description">
-            Showcasing the creativity, innovation, technical skills,
-            and achievements of IT students during ITQUAINT 2026.
-        </p>
-
-        <h3 class="media-title">ITQUAINT 2026 Pictures</h3>
-
-        <div class="photo-gallery">
-
-            <div class="photo-card">
-                <img src="itquaintphoto1.jpg" alt="ITQUAINT 2026 picture 1" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto2.jpg" alt="ITQUAINT 2026 picture 2" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto3.jpg" alt="ITQUAINT 2026 picture 3" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto4.jpg" alt="ITQUAINT 2026 picture 4" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto5.jpg" alt="ITQUAINT 2026 picture 5" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto6.jpg" alt="ITQUAINT 2026 picture 6" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto7.jpg" alt="ITQUAINT 2026 picture 7" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto8.jpg" alt="ITQUAINT 2026 picture 8" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto9.jpg" alt="ITQUAINT 2026 picture 9" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto10.jpg" alt="ITQUAINT 2026 picture 10" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto11.jpg" alt="ITQUAINT 2026 picture 11" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto12.jpg" alt="ITQUAINT 2026 picture 12" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto13.jpg" alt="ITQUAINT 2026 picture 13" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto14.jpg" alt="ITQUAINT 2026 picture 14" loading="lazy">
-            </div>
-
-            <div class="photo-card">
-                <img src="itquaintphoto15.jpg" alt="ITQUAINT 2026 picture 15" loading="lazy">
-            </div>
-
-        </div>
-
-        <!-- EVENT VIDEOS -->
-
-        <h2 class="video-section-title" id="event-videos">
-            Event Videos
-        </h2>
-
-        <p class="event-description">
-            Watch the highlights, performances, and memorable moments
-            from the campus competitions and Colors of Unity 2026.
-        </p>
-
-        <!-- FIELD DEMONSTRATION VIDEOS -->
-
-        <div class="video-gallery">
-
-            <div class="video-card">
-                <video controls preload="metadata">
-                    <source src="video4.mp4" type="video/mp4">
-                    Your browser does not support the video element.
-                </video>
-            </div>
-
-            <div class="video-card">
-                <video controls preload="metadata">
-                    <source src="video3.mp4" type="video/mp4">
-                    Your browser does not support the video element.
-                </video>
-            </div>
-
-        </div>
-
-        <!-- STREETDANCE VIDEO -->
-
-        <div class="video-gallery">
-
-            <div class="video-card">
-                <video controls preload="metadata">
-                    <source src="video2.mp4" type="video/mp4">
-                    Your browser does not support the video element.
-                </video>
-            </div>
-
-        </div>
-
-        <!-- COLORS OF UNITY VIDEO -->
-
-        <div class="video-gallery">
-
-            <div class="video-card">
-                <video controls preload="metadata">
-                    <source src="video1.mp4" type="video/mp4">
-                    Your browser does not support the video element.
-                </video>
-            </div>
-
-        </div>
-
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>
-            &copy; 2026 Iloilo State University of Fisheries
-            and Technology
-        </p>
-        <p>San Enrique Campus</p>
-    </footer>
+    <!-- MR. AND MS. COLORS OF UNITY -->
+    <section class="event-block">
+        <div class="event-heading">
+            <span class="event-number">02</span>
+            <div>
+                <h2>Mr. and Ms. Colors of Unity</h2>
+                <p>Celebrating confidence, diversity, and student talent.</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="photo-card"><img src="colorsphoto2.jpg" alt="Colors of Unity pageant" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto1.jpg" alt="Colors of Unity pageant" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- LGBTQIA+ -->
+    <section class="event-block">
+        <div class="event-heading">
+            <span class="event-number">03</span>
+            <div>
+                <h2>LGBTQIA+ Celebration</h2>
+                <p>Promoting respect, equality, inclusion, and acceptance.</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="photo-card"><img src="pridephoto1.jpg" alt="LGBTQIA+ celebration" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- FIELD DEMONSTRATION -->
+    <section class="event-block">
+        <div class="event-heading">
+            <span class="event-number">04</span>
+            <div>
+                <h2>Field Demonstration</h2>
+                <p>Showcasing teamwork, coordination, and discipline.</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="photo-card"><img src="fieldphoto2.jpg" alt="Field demonstration" loading="lazy"></div>
+            <div class="photo-card"><img src="fieldphoto1.jpg" alt="Field demonstration" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- STREET DANCE -->
+    <section class="event-block">
+        <div class="event-heading">
+            <span class="event-number">05</span>
+            <div>
+                <h2>Street Dance Competition</h2>
+                <p>Capturing the energy and creativity of student performers.</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="photo-card"><img src="street2.jpg" alt="Street dance competition" loading="lazy"></div>
+            <div class="photo-card"><img src="streetphoto1.jpg" alt="Street dance competition" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- COLORS OF UNITY -->
+    <section class="event-block" id="colors-unity">
+        <div class="event-heading">
+            <span class="event-number">06</span>
+            <div>
+                <h2>Colors of Unity</h2>
+                <p>Celebrating school spirit, friendship, and unity.</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="photo-card"><img src="colorsphoto8.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorspphoto2.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto4.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto13.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto6.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorspphoto1.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto11.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto3.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto15.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto7.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto10.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto5.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto14.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto9.jpg" alt="Colors of Unity" loading="lazy"></div>
+            <div class="photo-card"><img src="colorsphoto12.jpg" alt="Colors of Unity" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- ITQUAINT 2026 -->
+    <section class="event-block" id="itquaint">
+        <div class="event-heading">
+            <span class="event-number">07</span>
+            <div>
+                <h2>ITQUAINT 2026</h2>
+                <p>Memorable moments from our information technology activities.</p>
+            </div>
+        </div>
+
+        <div class="photo-gallery">
+            <div class="photo-card"><img src="itquaintphoto9.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto3.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto14.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto6.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto1.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto11.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto5.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto15.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto8.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto2.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto12.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto4.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto10.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto7.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+            <div class="photo-card"><img src="itquaintphoto13.jpg" alt="ITQUAINT 2026" loading="lazy"></div>
+        </div>
+    </section>
+
+</main>
+
+<!-- VIDEO GALLERY -->
+<section class="video-section" id="videos">
+    <div class="video-container">
+
+        <div class="video-header">
+            <span class="eyebrow">Watch and Remember</span>
+            <h2>Campus Videos</h2>
+            <p>Watch highlights and memorable moments from campus events.</p>
+        </div>
+
+        <div class="video-gallery">
+
+            <article class="video-card">
+                <video controls preload="metadata">
+                    <source src="video2.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+                <div class="video-info">
+                    <h3>Campus Event Highlights</h3>
+                    <p>Relive exciting moments from campus activities.</p>
+                </div>
+            </article>
+
+            <article class="video-card">
+                <video controls preload="metadata">
+                    <source src="video4.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+                <div class="video-info">
+                    <h3>Campus Memories</h3>
+                    <p>A collection of memorable campus experiences.</p>
+                </div>
+            </article>
+
+            <article class="video-card">
+                <video controls preload="metadata">
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+                <div class="video-info">
+                    <h3>Student Activities</h3>
+                    <p>Highlights of student participation and activities.</p>
+                </div>
+            </article>
+
+            <article class="video-card">
+                <video controls preload="metadata">
+                    <source src="video3.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+                <div class="video-info">
+                    <h3>Special Campus Moments</h3>
+                    <p>Celebrating our campus community.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>ISUFST San Enrique Campus</strong></p>
+    <p>Campus Events and Memories</p>
+    <p>&copy; 2026 All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
